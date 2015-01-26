@@ -1,7 +1,4 @@
 # encoding: utf-8
-import json
-
-from django.http import HttpResponse
 from django.views.generic import CreateView, DeleteView, ListView
 from .models import Picture
 from .response import JSONResponse, response_mimetype
@@ -19,10 +16,7 @@ class PictureCreateView(CreateView):
         response['Content-Disposition'] = 'inline; filename=files.json'
         return response
 
-    def form_invalid(self, form):
-        data = json.dumps(form.errors)
-        return HttpResponse(content=data, status=400, content_type='application/json')
-
+"""
 class BasicVersionCreateView(PictureCreateView):
     template_name_suffix = '_basic_form'
 
@@ -37,7 +31,7 @@ class AngularVersionCreateView(PictureCreateView):
 
 class jQueryVersionCreateView(PictureCreateView):
     template_name_suffix = '_jquery_form'
-
+"""
 
 class PictureDeleteView(DeleteView):
     model = Picture

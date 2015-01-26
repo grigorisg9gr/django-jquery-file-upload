@@ -805,9 +805,6 @@
             response.jqXHR = options.jqXHR = jqXHR;
             response.textStatus = options.textStatus = textStatus;
             response.errorThrown = options.errorThrown = errorThrown;
-            if ('file' in response.jqXHR.responseJSON) {
-                response.errorThrown = options.errorThrown = response.jqXHR.responseJSON.file.join(", ");
-            }
             this._trigger('fail', null, options);
         },
 

@@ -11,6 +11,7 @@ class Picture(models.Model):
     """
     file = models.ImageField(upload_to="pictures")
     slug = models.SlugField(max_length=50, blank=True)
+    date_created = models.DateTimeField(auto_now=True)
 
     def __unicode__(self):
         return self.file.name
